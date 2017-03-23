@@ -1,0 +1,49 @@
+---
+
+- hosts: all
+  roles:
+
+    - role: openmicroscopy.omero-web
+      omero_web_release: 5.3.0-m9
+      omero_web_ice_version: "3.6"
+
+    - role: ansible-role-omero-web-apps
+      omero_web_apps_package:
+        - "omero-mapr==0.1.12"
+      omero_web_apps_name:
+        - omero_mapr
+      omero_web_apps_top_links:
+        - label: OMERO
+          link:
+            viewname: webindex
+            query_string: { experimenter: -1 }
+          attrs:
+            title: Image Data Repository
+        - label: Genes
+          link:
+            viewname: maprindex_gene
+            query_string: { experimenter: -1 }
+          attrs:
+            title: Genes browser
+      omero_web_apps_config_append:
+        omero.web.mapr.config:
+          - menu: "gene"
+            config:
+              default:
+                - "Gene Symbol"
+              all:
+                - "Gene Symbol"
+                - "Gene Identifier"
+              ns:
+                - "openmicroscopy.org/mapr/gene"
+              label: "Gene"
+              case_sensitive: True
+          - menu: "genesupplementary"
+            config:
+              default: []
+              all: []
+              ns:
+                - "openmicroscopy.org/mapr/gene/supplementary"
+              label: "Gene supplementary"
+      omero_web_apps_config_set:
+        example.key: example value
