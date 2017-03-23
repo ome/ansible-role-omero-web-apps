@@ -8,9 +8,9 @@
       omero_web_ice_version: "3.6"
 
     - role: ansible-role-omero-web-apps
-      omero_web_apps_package:
+      omero_web_apps_packages:
         - "omero-mapr==0.1.12"
-      omero_web_apps_name:
+      omero_web_apps_names:
         - omero_mapr
       omero_web_apps_top_links:
         - label: OMERO
@@ -46,4 +46,6 @@
                 - "openmicroscopy.org/mapr/gene/supplementary"
               label: "Gene supplementary"
       omero_web_apps_config_set:
-        example.key: example value
+        example.string: example value
+        example.boolean: True
+        example.integer: 2

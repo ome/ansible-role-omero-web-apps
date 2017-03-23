@@ -1,5 +1,6 @@
 import testinfra.utils.ansible_runner
 import json
+import pytest
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     '.molecule/ansible_inventory').get_hosts('all')
@@ -15,8 +16,13 @@ def assert_jcfg(Command, Sudo, key, value, isjson):
     assert cfg == value
 
 
-def test_example_key(Command, Sudo):
-    assert_jcfg(Command, Sudo, 'example.key', 'example value', False)
+@pytest.mark.parametrize("key,value", [
+    ('example.string', 'example value'),
+])
+#    ('example.boolean', True),
+#    ('example.integer', 2),
+def test_example_config(Command, Sudo, key, value):
+    assert_jcfg(Command, Sudo, key, value, False)
 
 
 def test_omero_web_apps(Command, Sudo):

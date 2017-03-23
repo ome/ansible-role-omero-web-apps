@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 
 # add application
-{% for item in omero_web_apps_name %}
+{% for item in omero_web_apps_names %}
 config append -- omero.web.apps {{ item | to_json | quote }}
 {% endfor %}
 

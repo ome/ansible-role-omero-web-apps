@@ -6,7 +6,7 @@
   pip:
     name: "{{ item }}"
     state: present
-  with_items: "{{ omero_web_apps_package }}"
+  with_items: "{{ omero_web_apps_packages }}"
   notify:
     - restart omero-web
 

@@ -16,8 +16,8 @@ Role Variables
 --------------
 
 All variables are optional:
-- `omero_web_apps_name`: List of web application names to be appended to `omero.web.apps`
-- `omero_web_apps_package`: List of pip installable packages
+- `omero_web_apps_names`: List of web application names to be appended to `omero.web.apps`
+- `omero_web_apps_packages`: List of pip installable packages
 - `omero_web_apps_top_links`: Lists of top link dictionaries to be appended to `omero.web.ui.top_links`, of the form:
   - `label`: Label
   - `link`: URL or a dict

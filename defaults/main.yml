@@ -2,10 +2,10 @@
 # defaults for omero-web-apps
 
 # The pip installable package
-omero_web_apps_package: []
+omero_web_apps_packages: []
 
 # The name of the web application, used for configuration
-omero_web_apps_name: []
+omero_web_apps_names: []
 
 # Top links
 omero_web_apps_top_links: []
