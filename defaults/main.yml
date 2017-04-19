@@ -1,0 +1,31 @@
+---
+# defaults for omero-web-apps
+
+# The pip installable package
+omero_web_apps_packages: []
+
+# The name of the web application, used for configuration
+omero_web_apps_names: []
+
+# Top links
+omero_web_apps_top_links: []
+
+# UI metadata panes
+omero_web_apps_ui_metadata_panes: []
+
+# Other list value properties (dict, append)
+omero_web_apps_config_append: {}
+
+# Other key value properties (dict, set)
+omero_web_apps_config_set: {}
+
+# The basename of the configuration file
+omero_web_apps_config_name: omero-web-apps
+
+
+######################################################################
+# Expert users only!
+######################################################################
+
+# The OMERO.web configuration directory
+omero_web_apps_omeroweb_config_dir: "{{ omero_common_basedir }}/web/config"
