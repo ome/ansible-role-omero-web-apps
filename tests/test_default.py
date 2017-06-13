@@ -9,7 +9,7 @@ OMERO = '/opt/omero/web/OMERO.web/bin/omero'
 
 
 def assert_jcfg(Command, Sudo, key, value, isjson):
-    with Sudo('omeroweb'):
+    with Sudo('omero-web'):
         cfg = Command.check_output("%s config get %s", OMERO, key)
     if isjson:
         cfg = json.loads(cfg)
