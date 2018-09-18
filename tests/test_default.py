@@ -67,7 +67,7 @@ def test_omero_web_ui_toplinks(Command, Sudo):
         ],
         [
             "Help",
-            "http://help.openmicroscopy.org/",
+            "https://help.openmicroscopy.org/",
             {"target": "new", "title": "Open OMERO user guide in a new tab"}
         ],
         [
