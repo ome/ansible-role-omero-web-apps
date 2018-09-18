@@ -23,7 +23,7 @@ All variables are optional:
   - `link`: URL or a dict
   - `attrs`: Dictionary of attributes (optional)
 - `omero_web_apps_ui_metadata_panes`: Items to be appended to `omero.web.ui.metadata_panes`
-- `omero_web_apps_config_append`: Dictionary of other key-value pairs to be appended
+- `omero_web_apps_config_append`: Dictionary of other key-[list of values] pairs to be appended (multiple values can be appended to the same key)
 - `omero_web_apps_config_set`: Dictionary of other key-value pairs to be set
 - `omero_web_apps_config_name`: The basename of the configuration file (`web/config/{{ omero_web_apps_config_name }}.omero`)
 

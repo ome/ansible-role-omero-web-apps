@@ -17,7 +17,9 @@ config append -- omero.web.ui.metadata_panes {{ item | to_json | quote }}
 
 # Other list value properties (append)
 {% for key in omero_web_apps_config_append %}
-config append -- {{ key | quote }} {{ omero_web_apps_config_append[key] | to_json | quote }}
+{%   for value in omero_web_apps_config_append[key] %}
+config append -- {{ key | quote }} {{ value | to_json | quote }}
+{%   endfor %}
 {% endfor %}
 
 # Other key value properties (set)
