@@ -31,26 +31,24 @@ def test_omero_web_apps(Command, Sudo):
 
 def test_omero_web_mapr_config(Command, Sudo):
     expected = [
-        [
-            {
-                "menu": "gene", "config": {
-                    "default": ["Gene Symbol"],
-                    "case_sensitive": True,
-                    "all": ["Gene Symbol", "Gene Identifier"],
-                    "ns": ["openmicroscopy.org/mapr/gene"],
-                    "label": "Gene"
-                }
-            },
-            {
-                "menu": "genesupplementary",
-                "config": {
-                    "default": [],
-                    "all": [],
-                    "ns": ["openmicroscopy.org/mapr/gene/supplementary"],
-                    "label": "Gene supplementary"
-                }
+        {
+            "menu": "gene", "config": {
+                "default": ["Gene Symbol"],
+                "case_sensitive": True,
+                "all": ["Gene Symbol", "Gene Identifier"],
+                "ns": ["openmicroscopy.org/mapr/gene"],
+                "label": "Gene"
             }
-        ]
+        },
+        {
+            "menu": "genesupplementary",
+            "config": {
+                "default": [],
+                "all": [],
+                "ns": ["openmicroscopy.org/mapr/gene/supplementary"],
+                "label": "Gene supplementary"
+            }
+        }
     ]
     assert_jcfg(Command, Sudo, 'omero.web.mapr.config', expected, True)
 
@@ -69,7 +67,7 @@ def test_omero_web_ui_toplinks(Command, Sudo):
         ],
         [
             "Help",
-            "http://help.openmicroscopy.org/",
+            "https://help.openmicroscopy.org/",
             {"target": "new", "title": "Open OMERO user guide in a new tab"}
         ],
         [
