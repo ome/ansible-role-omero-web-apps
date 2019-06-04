@@ -7,7 +7,7 @@
     name: "{{ item }}"
     state: present
     virtualenv: "{{ omero_web_basedir }}/venv"
-    virtualenv_site_packages: yes
+    virtualenv_site_packages: true
   with_items: "{{ omero_web_apps_packages }}"
   notify:
     - restart omero-web
