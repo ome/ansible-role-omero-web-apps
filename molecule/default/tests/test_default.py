@@ -89,3 +89,21 @@ def test_omero_web_ui_toplinks(host):
         ]
     ]
     assert_jcfg(host, 'omero.web.ui.top_links', expected, True)
+
+
+def test_mapr_config(host):
+    config = {
+        "gene": {
+            "default": ["Gene Symbol"],
+            "case_sensitive": True,
+            "all": ["Gene Symbol", "Gene Identifier"],
+            "ns": ["openmicroscopy.org/mapr/gene"],
+            "label": "Gene"},
+        "genesupplementary": {
+             "default": [],
+             "all": [],
+             "ns": ["openmicroscopy.org/mapr/gene/supplementary"],
+             "label": "Gene supplementary"}
+         }
+    out = host.check_output('curl -L http://localhost/mapr/api/config/')
+    assert config in out
