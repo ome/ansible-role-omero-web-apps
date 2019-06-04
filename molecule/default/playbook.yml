@@ -14,13 +14,13 @@
         - label: OMERO
           link:
             viewname: webindex
-            query_string: { experimenter: -1 }
+            query_string: {experimenter: -1}
           attrs:
             title: Image Data Repository
         - label: Genes
           link:
             viewname: maprindex_gene
-            query_string: { experimenter: -1 }
+            query_string: {experimenter: -1}
           attrs:
             title: Genes browser
       omero_web_apps_config_append:
