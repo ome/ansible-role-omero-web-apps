@@ -13,9 +13,8 @@
 - name: omero web apps | add application web configuration
   become: true
   template:
-    dest: >-
-      {{ omero_web_apps_omeroweb_config_dir }}/
-      {{ omero_web_apps_config_name }}.omero
+    dest: "{{ omero_web_apps_omeroweb_config_dir }}/\
+      {{ omero_web_apps_config_name }}.omero"
     force: true
     src: omero-web-apps-omero.j2
   notify:
