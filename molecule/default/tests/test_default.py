@@ -106,4 +106,4 @@ def test_mapr_config(host):
              "label": "Gene supplementary"}
          }
     out = host.check_output('curl -L http://localhost/mapr/api/config/')
-    assert config in out
+    assert out == config
