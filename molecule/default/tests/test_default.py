@@ -93,17 +93,17 @@ def test_omero_web_ui_toplinks(host):
 
 def test_mapr_config(host):
     config = {
-        "gene": {
-            "all": ["Gene Symbol", "Gene Identifier"],
-            "case_sensitive": True,
-            "default": ["Gene Symbol"],
-            "label": "Gene",
-            "ns": ["openmicroscopy.org/mapr/gene"]},
-        "genesupplementary": {
-            "all": [],
-            "default": [],
-            "label": "Gene supplementary",
-            "ns": ["openmicroscopy.org/mapr/gene/supplementary"]}
+        u'gene': {
+            u'all': [u'Gene Symbol', u'Gene Identifier'],
+            u'case_sensitive': True,
+            u'default': [u'Gene Symbol'],
+            u'label': 'Gene',
+            u'ns': [u'openmicroscopy.org/mapr/gene']},
+        u'genesupplementary': {
+            u'all': [],
+            u'default': [],
+            u'label': u'Gene supplementary',
+            u'ns': [u'openmicroscopy.org/mapr/gene/supplementary']}
          }
     out = host.check_output('curl -L http://localhost/mapr/api/config/')
-    assert out == config
+    assert json.loads(out) == config
