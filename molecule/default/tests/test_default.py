@@ -94,16 +94,16 @@ def test_omero_web_ui_toplinks(host):
 def test_mapr_config(host):
     config = {
         "gene": {
-            "default": ["Gene Symbol"],
-            "case_sensitive": True,
             "all": ["Gene Symbol", "Gene Identifier"],
-            "ns": ["openmicroscopy.org/mapr/gene"],
-            "label": "Gene"},
+            "case_sensitive": True,
+            "default": ["Gene Symbol"],
+            "label": "Gene",
+            "ns": ["openmicroscopy.org/mapr/gene"]},
         "genesupplementary": {
-             "default": [],
-             "all": [],
-             "ns": ["openmicroscopy.org/mapr/gene/supplementary"],
-             "label": "Gene supplementary"}
+            "all": [],
+            "default": [],
+            "label": "Gene supplementary",
+            "ns": ["openmicroscopy.org/mapr/gene/supplementary"]}
          }
     out = host.check_output('curl -L http://localhost/mapr/api/config/')
     assert out == config
