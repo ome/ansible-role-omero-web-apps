@@ -1,8 +1,7 @@
 ---
-
-- hosts: all
+- name: Converge
+  hosts: all
   roles:
-
     - role: openmicroscopy.omero-web
       omero_web_ice_version: "3.6"
 
@@ -15,13 +14,13 @@
         - label: OMERO
           link:
             viewname: webindex
-            query_string: { experimenter: -1 }
+            query_string: {experimenter: -1}
           attrs:
             title: Image Data Repository
         - label: Genes
           link:
             viewname: maprindex_gene
-            query_string: { experimenter: -1 }
+            query_string: {experimenter: -1}
           attrs:
             title: Genes browser
       omero_web_apps_config_append:
@@ -36,7 +35,7 @@
               ns:
                 - "openmicroscopy.org/mapr/gene"
               label: "Gene"
-              case_sensitive: True
+              case_sensitive: true
           - menu: "genesupplementary"
             config:
               default: []
@@ -46,5 +45,5 @@
               label: "Gene supplementary"
       omero_web_apps_config_set:
         example.string: example value
-        example.boolean: True
+        example.boolean: true
         example.integer: 2

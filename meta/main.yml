@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: ome-devel@lists.openmicroscopy.org.uk
   description: Install an OMERO.web plugin
@@ -5,11 +6,11 @@ galaxy_info:
   license: BSD
   min_ansible_version: 2.2
   platforms:
-  - name: EL
-    versions:
-    - 7
+    - name: EL
+      versions:
+        - 7
   galaxy_tags: []
 
 dependencies:
-- name: openmicroscopy.omero-common
-  src: openmicroscopy.omero-common
+  - name: openmicroscopy.omero-common
+    src: openmicroscopy.omero-common

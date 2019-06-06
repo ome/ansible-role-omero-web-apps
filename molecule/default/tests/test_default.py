@@ -1,16 +1,17 @@
-import testinfra.utils.ansible_runner
+import os
 import json
 import pytest
+import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    '.molecule/ansible_inventory').get_hosts('all')
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 OMERO = '/opt/omero/web/OMERO.web/bin/omero'
 
 
-def assert_jcfg(Command, Sudo, key, value, isjson):
-    with Sudo('omero-web'):
-        cfg = Command.check_output("%s config get %s", OMERO, key)
+def assert_jcfg(host, key, value, isjson):
+    with host.sudo('omero-web'):
+        cfg = host.check_output("%s config get %s", OMERO, key)
     if isjson:
         cfg = json.loads(cfg)
     assert cfg == value
@@ -21,15 +22,15 @@ def assert_jcfg(Command, Sudo, key, value, isjson):
 ])
 #    ('example.boolean', True),
 #    ('example.integer', 2),
-def test_example_config(Command, Sudo, key, value):
-    assert_jcfg(Command, Sudo, key, value, False)
+def test_example_config(host, key, value):
+    assert_jcfg(host, key, value, False)
 
 
-def test_omero_web_apps(Command, Sudo):
-    assert_jcfg(Command, Sudo, 'omero.web.apps', ["omero_mapr"], True)
+def test_omero_web_apps(host):
+    assert_jcfg(host, 'omero.web.apps', ["omero_mapr"], True)
 
 
-def test_omero_web_mapr_config(Command, Sudo):
+def test_omero_web_mapr_config(host):
     expected = [
         {
             "menu": "gene", "config": {
@@ -50,10 +51,10 @@ def test_omero_web_mapr_config(Command, Sudo):
             }
         }
     ]
-    assert_jcfg(Command, Sudo, 'omero.web.mapr.config', expected, True)
+    assert_jcfg(host, 'omero.web.mapr.config', expected, True)
 
 
-def test_omero_web_ui_toplinks(Command, Sudo):
+def test_omero_web_ui_toplinks(host):
     expected = [
         [
             "Data",
@@ -87,4 +88,4 @@ def test_omero_web_ui_toplinks(Command, Sudo):
             {"title": "Genes browser"}
         ]
     ]
-    assert_jcfg(Command, Sudo, 'omero.web.ui.top_links', expected, True)
+    assert_jcfg(host, 'omero.web.ui.top_links', expected, True)
