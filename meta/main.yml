@@ -9,8 +9,8 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+  role_name: omero_web_apps
   galaxy_tags: []
 
 dependencies:
-  - name: openmicroscopy.omero-common
-    src: openmicroscopy.omero-common
+  - ome.omero_common

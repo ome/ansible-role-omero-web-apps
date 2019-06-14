@@ -1,4 +1,4 @@
 ---
-- src: openmicroscopy.omero-common
-- src: openmicroscopy.omego
-- src: openmicroscopy.omero-web
+- src: ome.omero_common
+- src: ome.omego
+- src: ome.omero_web

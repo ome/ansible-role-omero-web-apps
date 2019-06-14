@@ -1,6 +1,9 @@
 OMERO Web Applications and Configuration
 ========================================
 
+[![Build Status](https://travis-ci.org/ome/ansible-role-omero-web-apps.svg)](https://travis-ci.org/ome/ansible-role-omero-web-apps)
+[![Ansible Role](https://img.shields.io/ansible/role/41131.svg)](https://galaxy.ansible.com/ome/omero_web_apps/)
+
 Additional OMERO.web configuration.
 This is primarily aimed to help with the configuration of OMERO.web applications/plugins, but can also be used to manage standard OMERO.web configuration properties.
 This role only works with OMERO.web 5.3+ due to changes in the configuration handling.
