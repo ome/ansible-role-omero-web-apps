@@ -8,6 +8,10 @@ Additional OMERO.web configuration.
 This is primarily aimed to help with the configuration of OMERO.web applications/plugins, but can also be used to manage standard OMERO.web configuration properties.
 This role only works with OMERO.web 5.3+ due to changes in the configuration handling.
 
+This role ***does not*** support OMERO.web running under Python 3.
+All functionality is being merged into the [ome.omero_web](https://galaxy.ansible.com/ome/omero_web) role for Python 3 deployments.
+Parameter names are unchanged.
+
 
 Dependencies
 ------------

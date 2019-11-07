@@ -1,6 +1,11 @@
 ---
 # tasks file for roles/omero-web-apps
 
+- name: omero web apps | check omero web python
+  fail:
+    msg: This role has been merged into ome.omero_web for Python3
+  when: 'omero_web_python3 | default(False)'
+
 - name: omero web apps | install web-app
   become: true
   pip:
